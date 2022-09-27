@@ -2,10 +2,9 @@ from zooAnimales.animal import Animal
 class Zona():
     _animales = []
     
-    def __init__(self, nombre, *args):
+    def __init__(self, nombre, zoo = None):
         self._nombre = nombre
-        for i in args:
-            self._zoo = i
+        self._zoo = zoo
     
     def agregarAnimales(self, animal):
         if isinstance(animal, Animal):

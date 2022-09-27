@@ -1,5 +1,4 @@
 from zooAnimales.animal import Animal
-import this
 
 class Reptil(Animal):
     _listado = []
@@ -10,7 +9,7 @@ class Reptil(Animal):
         super().__init__(nombre, edad, habitat, genero)
         self._colorEscamas = colorEscamas
         self._largoCola = largoCola
-        self._listado.append(this)
+        self._listado.append(self)
 
     def getNombre(self):
         return super().getNombre()
@@ -23,11 +22,16 @@ class Reptil(Animal):
     def getLargoCola(self):
         return self._largoCola
     
-    def cantidadReptiles(self):
-        return len(self._listado)
-    def crearIguana(self, nombre, edad, genero):
-        Reptil(nombre, edad, "humedal", genero, "verde", 3)
-        self._iguanas += 1
-    def crearSerpiente(self, nombre, edad, genero):
-        Reptil(nombre, edad, "jungla", genero, "blanco", 1)
-        self._serpientes += 1
+    @classmethod
+    def cantidadReptiles(cls):
+        return len(cls._listado)
+        
+    @classmethod
+    def crearIguana(cls, nombre, edad, genero):
+        cls._iguanas += 1
+        return Reptil(nombre, edad, "humedal", genero, "verde", 3)
+
+    @classmethod
+    def crearSerpiente(cls, nombre, edad, genero):
+        cls._serpientes += 1
+        return Reptil(nombre, edad, "jungla", genero, "blanco", 1)

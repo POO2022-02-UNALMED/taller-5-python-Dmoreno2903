@@ -19,12 +19,14 @@ class Ave(Animal):
     def getColorPlumas(self):
         return self._colorPlumas
 
-    def cantidadAves(self):
-        return len(self._listado)
-    def crearHalcon(self, nombre, edad, genero):
-        self._halcones += 1
+    @classmethod
+    def cantidadAves(cls):
+        return len(cls._listado)
+    @classmethod
+    def crearHalcon(cls, nombre, edad, genero):
+        cls._halcones += 1
         return Ave(nombre, edad, "montanas", genero, "café glorioso")
-    def crearAguila(self, nombre, edad, genero):
-        self._aguilas += 1
+    @classmethod
+    def crearAguila(cls, nombre, edad, genero):
+        cls._aguilas += 1
         return Ave(nombre, edad, "montanas", genero, "blanco y amarillo")
-    
